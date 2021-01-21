@@ -1,0 +1,36 @@
+ {* Template reservierungen ListItem *} {* Dieses Template befindet sich auf der Profilseite im Reserverungen-Tab pro Reservierung wird dieses Template in die Liste eingefügt *}
+<li>
+    {$startDatum} - {$endDatum}
+    <div class="profileTabItemDropdown">
+        <button class="profileTabDropbtn">&#187;</button>
+        <div class="profileTabDropdown-content">
+            <div onclick="deleteReservierung({$res_id},{$m_id})" class="delete">Löschen</div>
+            <a class="popupButton" href="#popup{$res_id}">
+                <div class="show">Details</div>
+            </a>
+        </div>
+    </div>
+    <div id="popup{$res_id}" class="popupOverlay">{* Popup beim klicken auf Details *}
+        <div class="popup">
+            <h2>Reservierungsdetails</h2>
+            <a class="closePopup" href="#">&times;</a>
+            <div class="popupContent">
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            Von <span style="cursor: auto" class="profileDecriptionValue">{$startDatum}</span> bis <span style="cursor: auto" class="profileDecriptionValue">{$endDatum}</span>
+                        </td>
+                        <td>
+                            Zweck <span style="cursor: auto" class="profileDecriptionValue">{$res_zweck}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Auto: <span style="cursor: auto" class="profileDecriptionValue"><a href="fahrten.php?id={$f_id}">{$kennzeichen}</a></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</li>

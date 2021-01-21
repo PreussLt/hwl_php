@@ -1,0 +1,29 @@
+{* Template profileUserList *} {* Dieses Template ist das Popup Fenster das angezeigt wird wenn man auf die Abteilung innerhalb eines Profils drückt. Jeder Mitarbeiter der in der jeweiligen Abteilung wird als Item angezeigt. siehe(Template profileUserListItem)*}
+<div id="profileAbteilungListContainer">
+    <div id="listWindow">
+        <div id="innerWindow">
+            <div id="windowHeader">
+                <div id="windowHeaderRow">
+                    <div id="platzhalterLinksHeader"></div>
+                    <h1 id="abteilungHeadlineHeader">Abteilung:{$abteilung}</h1>
+                    <div id="schliessenButtonHeaderContainer" onclick="abteilungSchliessen()">
+                        <button id="schliessenButtonHeader" type="button">
+                            <div id="schliessenSymbolHeaderContainer">
+                                <svg aria-label="Schließen" id="schliessenSvg" fill="#262626" height="24" viewBox = "0 0 48 48" width="24">
+                                    <path clip-rule="evenodd" d="M41.1 9.1l-15 15L41 39c.6.6.6 1.5 0 2.1s-1.5.6-2.1 0L24 26.1l-14.9 15c-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1l14.9-15-15-15c-.6-.6-.6-1.5 0-2.1s1.5-.6 2.1 0l15 15 15-15c.6-.6 1.5-.6 2.1 0 .6.6.6 1.6 0 2.2z" fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="userListContainer">
+                <ul id="userList">
+                    <div id="userListItemContainer">
+                        {$items}
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

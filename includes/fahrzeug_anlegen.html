@@ -1,0 +1,78 @@
+<!--
+    {*  Template fahrzeug_anlegen *}
+    {*  Diese Form wird angezeigt um ein Fahrzeug anzulegen *}
+-->
+<div id="formcontainer">
+    <div style="display: none;" class="formstyle-loader"></div>
+    <form id="fahrzeugAnlegen" class="" action="" method="post">
+        <input placeholder="Kennzeichen" type="text" class="formstyle-input-text" name="kennzeichen" value="" required>
+        <input placeholder="Hersteller" type="text" class="formstyle-input-text" name="f_hersteller" value="" required>
+        <input placeholder="Model" type="text" class="formstyle-input-text" name="f_model" value="" required>
+        <input placeholder="Typ" type="text" class="formstyle-input-text" name="f_type" value="" required>
+        <input placeholder="Kilometerstand" type="text" class="formstyle-input-text" name="f_kilometerstand" value="" required>
+        <select class="formstyle-input-text" name="f_karroserie_form">
+          {$karroserieOptions}
+        </select>
+        <input placeholder="Farbe" type="text" class="formstyle-input-text" name="f_farbe" value="" required>
+
+        <select class="formstyle-input-text" name="f_mitarbeiter_level">
+          {$mitarbeiterLevelOptions}
+        </select>
+        <select class="formstyle-input-text" name="fskID">
+            {$fuehrerscheinOptions}
+        </select>
+        <input type="file" accept=".jpg" id="file" name="file" required>
+        <input type="submit" class="formstyle-input-submit" name="submit" value="Fahrzeug Anlegen">
+    </form>
+</div>
+<script>
+    $(document).ready(function(e) {
+        $("#fahrzeugAnlegen").on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{$actionLink}',
+                data: new FormData(this),
+                dataType: 'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function() {
+                    $('.formstyle-input-submit').attr("disabled", "disabled"); //button deaktivieren
+                    $('#fahrzeugAnlegen').css("opacity", ".5"); //form ausgrauen
+                    $('.formstyle-loader').css("display", "block");
+                },
+                success: function(response) {
+                    //console.log(response);
+                    if (response.status == 1) {
+                        //erfolgreich
+                        $('#fahrzeugAnlegen')[0].reset(); //form leeren
+
+                        var id = response.fahrzeugID;
+                        $("#text-area").load("src/getFahrzeugDetails.php?id=" + id); //angelegtes Fahrzeug anzeigen
+
+
+                    } else {
+                        //Fehler
+                        alert("Fehler! " + response.message + "\nCode: " + response.error);
+                    }
+                    $('#fahrzeugAnlegen').css("opacity", "");
+                    $('.formstyle-input-submit').removeAttr("disabled"); //button wieder aktivieren
+                    $('.formstyle-loader').css("display", "none");
+                }
+
+            });
+        });
+
+        $("#file").change(function() {
+            var file = this.files[0];
+            var fileType = file.type;
+            var match = ['image/jpg', 'image/jpeg'];
+            if (!(fileType == match[0] || fileType == match[1])) {
+                alert('Nur JPG Dateien erlaubt!' + fileType);
+                $("#file").val(' ');
+                return false;
+            }
+        });
+    });
+</script>

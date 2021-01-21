@@ -1,0 +1,81 @@
+<!--
+    {* Template fahrzeugDetail *}
+    {*  Dieses Template wird beim klicken auf den Pfeil in einem fahrzeuglistitem
+        angezeigt
+        siehe(Template fahrzeugListItem)
+        Es entält weitere Information zu einem Fahrzeug *}
+-->
+<div id="fahrzeugContainer">
+    <header id="fahrzeugHeader">
+        <div id="fahrzeugBild">
+            <div id="fahrzeugBildInner">
+                <div id="picContainer">
+                    <img id="carImg" alt="{$cartext}" title="{$cartext}" src="./pics/{$f_ID}.jpg">
+                </div>
+            </div>
+        </div>
+        <div id="fahrzeugInfo">
+            <div class="infoHeader">
+                <h2 class="headerItem firstItem">{$f_hersteller}</h2>
+                <h2 class="headerItem">{$f_typ}</h2>
+                <h2 class="headerItem">{$f_model}</h2>
+            </div>
+        </div>
+    </header>
+    <hr>
+    <div id="fahrzeugDetails">
+        <form id="reservierenForm" action="" method="post">
+            <div id="detailContainer">
+                Details:
+                <table id="detailTable">
+                    <tr>
+                        <td>
+                            Farbe: <span class="detailValue">{$f_farbe}</span>
+                        </td>
+                        <td>
+                            Karroserie: <span class="detailValue">{$karroserie}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Kennzeichen: <span class="detailValue">{$kennzeichen}</span>
+                        </td>
+                        <td>
+                            Kilometerstand: <span class="detailValue">{$kilometerstand}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Kaufdatum: <span class="detailValue">{$f_kaufdatum}</span>
+                        </td>
+                        <td>
+                            Benötigte Führerscheinklasse: <span class="detailValue">{$fs_klasse}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Benötigter Mitarbeiterrang: <span class="detailValue">{$m_level}</span>
+                        </td>
+                    </tr>
+                </table>
+                <input id="k_id" type="hidden" name="k_id" value="{$k_ID}">
+                <input type="submit" class="formstyle-input-submit" name="submit" value="Fahrzeug Reservieren">
+        </form>
+        <div id="reservedCalendarContainer">
+
+        </div>
+        <script>
+            $(document).ready(function(e) {
+                $('#reservierenForm').on('submit', function(e) {
+                    e.preventDefault();
+                    var k_id = $('#k_id').val();
+                    $('#text-area').load('src/fahrzeug_reservieren.php?id=' + k_id);
+                });
+                $('#reservedCalendarContainer').load('src/getReservedCalendar.php?fid={$f_ID}');
+
+
+            });
+        </script>
+        </div>
+    </div>
+</div>

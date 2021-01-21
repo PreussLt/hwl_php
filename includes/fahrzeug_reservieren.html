@@ -1,0 +1,63 @@
+<!--
+    {*  Template fahrzeug_reservieren *}
+    {*  Diese Form wird angezeigt um ein Fahrzeug zu reservieren *}
+-->
+<div id="formcontainer">
+    <div style="display: none;" class="formstyle-loader"></div>
+    <form style="text-align: left;" id="fahrzeugReservieren" method="post">
+        <label class="formstyle-label" for="kz">Kennzeichen</label>
+        <select id="kz" class="formstyle-input-text" name="kennzeichen">
+            {$kennzeichenOptions}
+        </select>
+
+        <label class="formstyle-label" for="ds">Datum Start:</label>
+        <input type="date" class="formstyle-input-text" name="datum_start" id="ds" min="{$startDatum}" value="{$startDatum}" required pattern="\d{4}-\d{2}-\d{2}">
+        <label class="formstyle-label" for="de">Datum Ende:</label>
+        <input type="date" class="formstyle-input-text" name="datum_end" id="de" min="{$endDatum}" value="{$endDatum}" required pattern="\d{4}-\d{2}-\d{2}">
+        <input placeholder="Grund für die Fahrt" type="text" class="formstyle-input-text" name="Grund" required>
+
+        <input type="submit" class="formstyle-input-submit" name="submit" value="Reservieren">
+    </form>
+</div>
+<script>
+    $(document).ready(function(e) {
+        $('#fahrzeugReservieren').on("submit", function(e) {
+            e.preventDefault();
+            var startDatum = $("#ds").val();
+            var endDatum = $("#de").val();
+            if (new Date(startDatum).getTime() < new Date(endDatum).getTime()) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{$actionLink}',
+                    data: new FormData(this),
+                    dataType: 'json',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('.formstyle-input-submit').attr("disabled", "disabled"); //button deaktivieren
+                        $('#fahrzeugAnlegen').css("opacity", ".5"); //form ausgrauen
+                        $('.formstyle-loader').css("display", "block");
+                    },
+                    success: function(response) {
+                        if (response.status == 0) {
+                            alert(response.message);
+                        }
+                        $('#fahrzeugReservieren').css("opacity", "");
+                        $('.formstyle-input-submit').removeAttr("disabled"); //button wieder aktivieren
+                        $('.formstyle-loader').css("display", "none");
+                        $('#fahrzeugReservieren')[0].reset();
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert(textStatus);
+                    }
+
+                });
+
+            } else {
+                alert("Das End-Datum muss später als das Start-Datum sein!");
+            }
+        });
+    });
+</script>

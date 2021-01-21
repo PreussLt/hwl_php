@@ -1,0 +1,104 @@
+#fahrzeugContainer {
+    width: 900px;
+    padding: 10px;
+    margin: auto;
+    background-color: #A4A4A4;
+    border: 1px solid black;
+    border-radius: 1px;
+}
+
+#fahrzeugHeader {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 150px;
+}
+
+#fahrzeugBild {
+    display: flex;
+    flex-basis: 0px;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    margin-right: 30px;
+}
+
+#fahrzeugBildInner {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#picContainer {
+    box-sizing: border-box;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+#carImg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    object-fit: contain;
+}
+
+#fahrzeugInfo {
+    flex-grow: 3;
+    flex-shrink: 1;
+}
+
+#fahrzeugDetails {
+    text-align: left;
+    padding: 10px;
+}
+
+#detailContainer {
+    width: 100%;
+}
+
+#detailTable {
+    color: #424242;
+    font-size: 24px;
+    width: 100%;
+}
+
+#detailTable td {
+    width: auto;
+}
+
+.detailValue {
+    font-weight: 600;
+    font-size: 28px;
+}
+
+hr {
+    color: #424242;
+    border: 1px solid #424242;
+    border-radius: 2px;
+}
+
+#reservedCalendarContainer {
+    width: 100%;
+    font-family: Verdana, sans-serif;
+}

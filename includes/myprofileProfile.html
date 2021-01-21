@@ -1,0 +1,55 @@
+ {* Template myprofileProfile *} {* Dieses Template wird auf der Profilseite eingesetzt. *}
+
+<div id="profileContainer">
+    <header id="profileHeader">
+        <div id="profilePictureSection">
+            <div id="profileOuterPicture">
+                <div id="profileInnerPicture">
+                    <div id="profilePictureContainer">
+                        <img alt="Profilbild" id="profileProfilePicture" src="pics/avatar.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="profileDetailsSection">
+            <div id="profileNameContainer">
+                <h2 id="profileName">{$vorname} {$nachname}</h2>
+                {$logoutButton} {* Logout button wird nur auf eingeloggten Profil angezeigt *}
+            </div>
+            <ul id="profileAttributesList">
+                <li id="profileAttributesItem">
+                    <span id="profileAttribute"><span id="profileAttributeValue">{$fahrten}</span> Fahrten</span>
+                </li>
+                <li id="profileAttributesItem">
+                    <span id="profileAttribute"><span id="profileAttributeValue">{$reservierungen}</span> reservierungen</span>
+                </li>
+            </ul>
+            <div id="profileDescription">
+                <table id="profileDescriptionTable">
+                    <tr>
+                        <td>
+                            Abteilung: <span class="profileDecriptionValue" onclick="showAbteilungDetail('{$abteilung}')">{$abteilung}</span>
+                            <div id="abteilungDetail">
+                                {include file="profileUserList.html"}
+                            </div>
+                        </td>
+                        <td>
+                            Führerscheinklasse: <span class="profileDecriptionValue">{$fuehrerscheinlvl}</span>
+                            <div id="fuehrscheinDetail"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </header>
+    <div id="profileDetailTableContainer">
+        <div class="profileTab">
+            <button class="tablinks" onclick="openTab(event, 'reservierungenTab', {$id})">Reservierungen</button>
+            <button class="tablinks" onclick="openTab(event, 'fahrtenTab', {$id})">Fahrten</button>
+        </div>
+
+        <div id="reservierungenTab" class="tabcontent"></div>
+
+        <div id="fahrtenTab" class="tabcontent"></div>
+    </div>
+</div>

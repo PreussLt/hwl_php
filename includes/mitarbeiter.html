@@ -1,0 +1,20 @@
+ {* Template mitarbeiter *} {* Dieses Template wird beim klicken auf den Tab Mitarbeiter angezeigt. Hier werden alle Mitarbeiter aufgelistet. siehe(Template mitarbeiterCard) *} {* Header Laden *} {include file="header.html"}
+
+<div class="mitarbeiterContainer">
+    <h1 style="margin-left: auto;margin-right: auto">Mitarbeiter</h1>
+    <input type="text" id="searchBar" onkeyup="search()" placeholder="Suche nach Namen.." title="Name eintragen">
+    <div class="showMitarbeiterContainer">
+
+    </div>
+    <script>
+        $(".showMitarbeiterContainer").load("src/getMitarbeiterList.php");
+
+        function search() {
+            input = document.getElementById("searchBar");
+            filter = input.value;
+            $(".showMitarbeiterContainer").load("src/getMitarbeiterList.php?q=" + filter);
+        }
+    </script>
+</div>
+
+{* Footer Laden *} {include file="footer.html"}

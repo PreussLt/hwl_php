@@ -1,0 +1,8 @@
+ {* Template mitarbeiterCard *} {* Dieses Template wird dieses Template als listitem angezeigt Wenn man auf den Tab Mitarbeiter klickt.*}
+<div class="card">
+    <img src="pics/avatar.jpg" alt="{$vorname}" style="width:100%">
+    <h1>{$vorname} {$nachname}</h1>
+    <p class="mitarbeiterCardTitle">{$fahrten} Fahrten {$reservierungen} Reservierungen</p>
+    <p>{$mitarbeiterLvl}</p>
+    <p><a href="./profile.php?id={$id}"><button class="mitarbeiterCardButton">Anzeigen</button></a></p>
+</div>

@@ -1,0 +1,21 @@
+<!--
+    {*  Template fahrezeuge *}
+    {*  Dieses Template wird beim klicken auf Fahrzeuge angezeigt.
+        Es enthält eine Fahrzeuglist mit allend vorhanden Fahrzeugen
+        siehe(Template fahrzeugListItem) 
+        *}
+-->
+{* header laden *} {include file="header.html"}
+<div class="grid-container">
+    {$menue}
+    <div class="text" id="text-area"> Aktuell hast du keinen Menü Punkt ausgewählt</div>
+    <div class="margin-l"></div>
+    <div class="margin-m"></div>
+    <div class="Head"></div>
+    <div class="margin-r"></div>
+    <div class="footer"></div>
+    <script type="text/javascript">
+        fahrzeugeDoClick();
+    </script>
+</div>
+{* footer laden *} {include file="footer.html"}

@@ -1,0 +1,67 @@
+ {* Template reservedCalendar *} {* Dieses Template wird bei den Fahrzeugdetails angezeigt Der Kalender zeigt an in welchem Zeitpunkt das Fahrzeug reserviert ist *}
+<div id="calendarValues" class="month" fid="{$fid}" month="{$month_num}" year="{$year}">
+    <ul>
+        <li id="prev">&#10094;</li>
+        <li id="next">&#10095;</li>
+        <li>
+            {$month_name}<br>
+            <span style="font-size:18px">{$year}</span>
+        </li>
+    </ul>
+</div>
+
+<ul class="weekdays">
+    <li>Mo</li>
+    <li>Di</li>
+    <li>Mi</li>
+    <li>Do</li>
+    <li>Fr</li>
+    <li>Sa</li>
+    <li>So</li>
+</ul>
+
+<ul class="days">
+    {$days}
+</ul>
+
+<script>
+    $("#next").on("click", function() {
+
+
+
+        var m = parseInt($("#calendarValues").attr("month"));
+        var y = parseInt($("#calendarValues").attr("year"));
+        var fid = parseInt($("#calendarValues").attr("fid"));
+
+        console.log("m=" + m + " y=" + y);
+
+        if (m == 12) {
+            m = 1;
+            y = y + 1;
+        } else {
+            m = m + 1;
+        }
+
+        $('#reservedCalendarContainer').load('src/getReservedCalendar.php?m=' + m + '&y=' + y + "&fid=" + fid);
+    });
+
+    $("#prev").on("click", function() {
+
+
+
+        var m = parseInt($("#calendarValues").attr("month"));
+        var y = parseInt($("#calendarValues").attr("year"));
+        var fid = parseInt($("#calendarValues").attr("fid"));
+
+        console.log("m=" + m + " y=" + y);
+
+        if (m == 1) {
+            m = 12;
+            y = y - 1;
+        } else {
+            m = m - 1;
+        }
+
+        $('#reservedCalendarContainer').load('src/getReservedCalendar.php?m=' + m + '&y=' + y + "&fid=" + fid);
+    });
+</script>

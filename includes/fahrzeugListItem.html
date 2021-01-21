@@ -1,0 +1,42 @@
+<!--
+    {*  Template fahrzeugListItem *}
+    {*  Dieses Template wird in der fahrzeugliste 
+        als Item angezeigz *}
+-->
+<div class="listItemContainer">
+    <div class="listItem">
+        <div class="outerPic">
+            <div class="innerPic">
+                <div class="imgContainer">
+                    <img class="carPicture" alt="{$cartext}" title="{$cartext}" src="./pics/{$f_ID}.jpg">
+                </div>
+            </div>
+        </div>
+        <section class="info">
+            <div class="infoHeader">
+                <h2 class="headerItem firstItem">{$f_hersteller}</h2>
+                <h2 class="headerItem">{$f_typ}</h2>
+                <h2 class="headerItem">{$f_model}</h2>
+            </div>
+            <div class="infoDetails">
+                <table>
+                    <tr>
+                        <td><span class="detailAttribute">Farbe: </span></td>
+                        <td>
+                            <h1 class="detailItem">{$f_farbe}</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="detailAttribute">Kennzeichen: </span></td>
+                        <th>
+                            <h1 class="detailItem">{$kennzeichen}</h1>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <div id="{$f_ID}" class="continue">
+            <div style="margin-top: 50%;">&rarr;</div>
+        </div>
+    </div>
+</div>

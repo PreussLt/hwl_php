@@ -1,0 +1,28 @@
+{* Template profileUserListItem *} {* Dieses Template wird, beim klicken auf die Abteilung auf einem Profil, in einer Liste angezeigt.*}
+<li id="profileUserListItem">
+    <div id="userItemContainer">
+        <div id="userInfoContainer">
+            <div id="userProfilePictureOuter">
+                <div id="userProfilePictureInner" aria-disabled="true" role="button" tabindex="-1">
+                    <canvas id="userProfilePictureCanvas"></canvas>
+                    <a id="userProfilePictureLink" href="{$profileLink}" tabindex="0">
+                        <img alt="{$profileName}s Profilbild" id="userProfilePicturePic" draggable="false" src="pics/avatar.jpg">
+                    </a>
+                </div>
+            </div>
+            <div id="userInfoOuter">
+                <div id="userInfoTop">
+                    <span id="userInfoTopSpan">
+                        <a id="userInfoProfileLink" title="{$profileName}" tabindex="0" href="{$profileLink}">{$profileName}</a>
+                    </span>
+                </div>
+                <div id="userInfoBottom">
+                    {$description}
+                </div>
+            </div>
+            <div id="rightPlaceholder">
+
+            </div>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,46 @@
+.profileTabDropbtn {
+    background-color: #585858;
+    color: black;
+    padding: 2px;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+}
+
+.profileTabItemDropdown {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    cursor: pointer;
+}
+
+.profileTabDropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #a4a4a4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.profileTabDropdown-content div {
+    color: black;
+    padding: 6px 8px;
+    display: block;
+}
+
+.profileTabDropdown-content div:hover {
+    background-color: #4d4d4d;
+}
+
+.profileTabDropdown-content .delete:hover {
+    background-color: #bd2424
+}
+
+.profileTabItemDropdown:hover .profileTabDropdown-content {
+    display: block;
+}
+
+.profileTabItemDropdown:hover .profileTabDropbtn {
+    background-color: #a4a4a4;
+}

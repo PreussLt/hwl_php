@@ -1,0 +1,118 @@
+/* Definition Farben
+
+  Hintergrundfarbe/Kontrast Farbe: #A4A4A4
+  Hauptfarbe: #424242
+  Element Farbe: #FFFFFF
+*/
+
+:focus {
+    outline: none;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+body {
+    margin: 0px;
+    background-color: #424242;
+}
+
+
+/* Hier wird der Header Definiert */
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 75px;
+    background-color: #A4A4A4;
+}
+
+.header-img {
+    display: inline;
+    margin-left: 50px;
+    height: 75px;
+}
+
+.header-button {
+    justify-content: right;
+    text-align: right;
+    width: 100%;
+}
+
+.header-button button {
+    background-color: #A4A4A4;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    height: 75px;
+    width: 10%;
+    margin-right: 0px;
+}
+
+.header-button button:hover {
+    background-color: #424242;
+    border: none;
+    color: #A4A4A4;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    height: 75px;
+    width: 10%;
+    margin-right: 0px;
+}
+
+.centerLogo {
+    width: 500px;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.centerLogo:hover {
+    transform: scale(1.1);
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#overlayText {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background-color: #A4A4A4;
+    color: #424242;
+}
